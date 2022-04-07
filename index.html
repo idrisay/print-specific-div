@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: beige;
+        font-size: large;
+        font-family: 'Courier New', Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <button onclick="printFn()">Print</button>
+      <h2>Section 1</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
+        voluptatum nam inventore atque architecto deserunt ratione quasi
+        doloribus corporis nobis optio delectus, dicta modi, libero culpa
+        aspernatur ad expedita laborum? Architecto voluptas beatae aliquid odio
+        perspiciatis, quia corrupti! Dignissimos explicabo, architecto maiores
+        non sint sequi voluptas fugiat soluta. Doloribus quidem recusandae
+        corrupti praesentium autem impedit, aspernatur voluptatum ex incidunt
+        placeat? Neque atque officiis aliquam eveniet expedita minima nostrum
+        delectus iusto, aperiam nulla corporis consequatur nemo inventore quia
+        dolorem voluptatem quas unde perferendis blanditiis. Veritatis eligendi
+        similique, doloremque quidem dolorum alias. Atque dolorum impedit ut ex
+        aperiam, iste numquam sunt minus quos neque ullam quod cum nesciunt eius
+        ducimus deserunt vel explicabo, odio in repudiandae nisi delectus,
+        corrupti iure rerum! Quidem? Rerum veritatis, quo explicabo quisquam
+        eveniet quam, quasi tenetur repudiandae aut iure recusandae quis nulla!
+        Saepe cupiditate amet ad obcaecati sapiente nesciunt cumque ipsam nulla,
+        fugit, vel necessitatibus fuga itaque!
+      </p>
+    </section>
+    <section id="print-section">
+      <h2>Section 2</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
+        voluptatum nam inventore atque architecto deserunt ratione quasi
+        doloribus corporis nobis optio delectus, dicta modi, libero culpa
+        aspernatur ad expedita laborum? Architecto voluptas beatae aliquid odio
+        perspiciatis, quia corrupti! Dignissimos explicabo, architecto maiores
+        non sint sequi voluptas fugiat soluta. Doloribus quidem recusandae
+        corrupti praesentium autem impedit, aspernatur voluptatum ex incidunt
+        placeat? Neque atque officiis aliquam eveniet expedita minima nostrum
+        delectus iusto, aperiam nulla corporis consequatur nemo inventore quia
+        dolorem voluptatem quas unde perferendis blanditiis. Veritatis eligendi
+        similique, doloremque quidem dolorum alias. Atque dolorum impedit ut ex
+        aperiam, iste numquam sunt minus quos neque ullam quod cum nesciunt eius
+        ducimus deserunt vel explicabo, odio in repudiandae nisi delectus,
+        corrupti iure rerum! Quidem? Rerum veritatis, quo explicabo quisquam
+        eveniet quam, quasi tenetur repudiandae aut iure recusandae quis nulla!
+        Saepe cupiditate amet ad obcaecati sapiente nesciunt cumque ipsam nulla,
+        fugit, vel necessitatibus fuga itaque!
+      </p>
+    </section>
+    <script>
+      function printFn() {
+        console.log("printing...", document.querySelector("style").textContent);
+        document.querySelector(
+          "style"
+        ).textContent += `@media print {body *:not(#print-section):not(#print-section *) {visibility: hidden;}#print-section{position: absolute;top: 0;left: 0;}}`;
+        console.log(
+          "printing2...",
+          document.querySelector("style").textContent
+        );
+        window.print();
+        console.log(
+          "printing3...",
+          document.querySelector("style").textContent
+        );
+        document.querySelector("style").textContent = document
+          .querySelector("style")
+          .textContent.replace(
+            `@media print {body *:not(#print-section):not(#print-section *) {visibility: hidden;}#print-section{position: absolute;top: 0;left: 0;}}`,
+            ""
+          );
+        console.log(
+          "printing4...",
+          document.querySelector("style").textContent
+        );
+      }
+    </script>
+  </body>
+</html>
